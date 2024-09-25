@@ -1,0 +1,84 @@
+<div class="row d-md-flex justify-content-md-center">
+    <div class="col-4">
+        <div class="card mb-3">
+            <div class="card-header text-bg-primary">Investimento</div>
+            <div class="card-body">
+                <div class="row m-2">
+                    <div class="col-3">
+                        <label for="inputValor" class="form-label">Valor: </label>
+                    </div>
+                    <div class="col-auto">
+                        <input name="inputValor" id="inputValor" type="number" min="0.01" step="0.01" value="" class="form-control" [(ngModel)]="valor" (input)="validarValor($event)" />
+                    </div>
+                    <div class="col-auto">
+                        <span class="form-text">(Reais)</span>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-3">
+                        <label for="inputPrazo" class="form-label">Prazo: </label>
+                    </div>
+                    <div class="col-auto">
+                        <!-- <input type="number" min="1" max="60" value="1" class="form-control" [(ngModel)]="prazo" /> -->
+                        <input type="number" min="1" max="60" value="1" class="form-control" [(ngModel)]="prazo" (input)="validarPrazo($event)" />
+
+                    </div>
+                    <div class="col-auto">
+                        <span class="form-text"> (meses)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-primary" (click)="onClickOK()">OK</button>
+                    <button type="button" class="btn btn-secondary" (click)="onClickCancel()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="resultadoVisivel" class="row d-md-flex justify-content-md-center">
+    <div class="col-4">
+        <div class="card mb-3">
+            <div class="card-header text-bg-success">Resultado</div>
+            <div class="card-body">
+                <div class="row m-2">
+                    <div class="col-3">
+                        <label for="inputValorBruto" class="form-label">Valor Bruto:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input name="inputValorBruto" id="inputValorBruto" type="text" value="" class="form-control" readonly [(ngModel)]="valorBruto" />
+                    </div>
+                    <div class="col-auto">
+                        <span class="form-text">(Reais)</span>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-3">
+                        <label for="inputValorLiquido" class="form-label">Valor Liquido:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input name="inputValorLiquido" id="inputValorLiquido" type="text" value="" class="form-control" readonly [(ngModel)]="valorLiquido" />
+                    </div>
+                    <div class="col-auto">
+                        <span class="form-text">(Reais)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="errosVisivel" class="row d-md-flex justify-content-md-center">
+    <div class="col-4">
+        <div class="card mb-3">
+            <div class="card-header text-bg-danger">Erros</div>
+            <div class="card-body">
+                <div class="row m-2">
+                    <div class="col-auto">
+                        <span class="form-text">{{ mensagemErro }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

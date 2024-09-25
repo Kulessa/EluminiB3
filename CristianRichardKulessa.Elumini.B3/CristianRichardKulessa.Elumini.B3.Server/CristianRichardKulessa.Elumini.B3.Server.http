@@ -1,0 +1,6 @@
+@CristianRichardKulessa.Elumini.B3.Server_HostAddress = http://localhost:5117
+
+GET {{CristianRichardKulessa.Elumini.B3.Server_HostAddress}}/cdb/
+Accept: application/json
+
+###
